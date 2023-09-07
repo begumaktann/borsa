@@ -1,0 +1,193 @@
+body {
+  background: #fafafa;
+  color: #333333;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+h1 {
+    text-align: center;
+    align-content: center;
+    font-size: 38px;
+    margin-top: 20px;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #ee9e9e;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #391b1b;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 8px 8px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  /*margin-bottom: 10px;*/
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #ebebeb;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #f47777;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.navbar {
+    background-color: #ebebeb;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Horizontal, Vertical, Blur, Color */
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+}
+.navbar navbar-expand-lg navbar-light {
+    background-color: #ebebeb;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Horizontal, Vertical, Blur, Color */
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+}
+
+.nav-item{
+    display:flex;
+}
+.nav-link{
+    display: flex;
+}
+.collapse navbar-collapse{
+    display: flex;
+}
+.navbar-nav ml-auto {
+    display: flex;
+}
+
+/* Add custom styles to the button */
+.btn {
+  /* Your custom styles here */
+  background-color: rgb(64, 64, 64); /* Example background color */
+  color: #ffffff; /* Example text color */
+  border: white; /* Example border */
+  font-size: 18px;
+  /* Add more styles as needed */
+}
+
+.btn:hover {
+  /* Styles for when the button is hovered */
+  background-color: #474747; /* Example hover background color */
+  /* Add more hover styles as needed */
+}
+
+.custom-off-canvas-body {
+  background-color: #f2f2f2; /* Your desired background color */
+  /* Add more styles as needed */
+}
+.custom-off-canvas-header {
+  background-color: #ebebeb;
+
+}
+.navbar .nav-links a {
+    color: #888888;
+    font-size: 18px;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.page-link-span {
+  margin-right: 10px; /* Add spacing between arrows */
+}
+
+/* Add this to your main.css or add it to a <style> tag in the <head> of your HTML */
+.filename {
+  color: #333; /* Dark grey color */
+  text-decoration: none; /* Remove underline */
+}
+
+.btn-primary {
+  background-color: #4e4e4e; /* Customize button color */
+  border-color: #d4d4d4; /* Customize button border color */
+}
+
+.btn-primary:hover {
+  background-color: #626262; /* Customize button color on hover */
+  border-color: #474747; /* Customize button border color on hover */
+}
+
+.badge.badge-secondary {
+    background-color: #fd7e14;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    right: -8px;
+}
+
+.badge {
+    bs-badge-color: #127dd6;
+    font-size: 0.55rem;
+    padding: 0.1rem 0.15rem;
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #6c0707;
+}
+
+.fa, .fas {
+    font-weight: 900;
+    font-size: larger;
+}

@@ -1,0 +1,21 @@
+{% include "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+
+
+        <!-- Display Purchased Items -->
+        <div class="purchased-items">
+            <h2>Purchased Items</h2>
+            <ul>
+                {% for purchased_item in purchased_items %}
+                    <li>{{purchased_item}}</li>
+                    <a href="{% url 'cart:download_link_check' purchased_item.download_link %}" target="_blank">
+                        Download Link
+                    </a>
+                    <!-- Add more details as needed -->
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

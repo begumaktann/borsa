@@ -1,0 +1,23 @@
+<!-- checkout.html -->
+{% load tz %}
+{% include 'base.html' %}
+
+
+{% block content %}
+<h1>Checkout Successful</h1>
+<p>Your items have been checked out. Thank you!</p>
+{% if download_links_data %}
+  <h2>Download Links:</h2>
+  <ul>
+    {% for link_data in download_links_data %}
+      <li>
+
+          <a href="{% url 'cart:download_link_check' link_data.download_token %}" target="_blank">
+            Download Link
+          </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}
+

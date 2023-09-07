@@ -1,0 +1,12 @@
+<!-- cart/product_list.html -->
+
+{% include 'base.html' %}
+
+{% block content %}
+  <h2>Product List</h2>
+  <ul>
+    {% for dataset in datasets %}
+      <li>{{ dataset.name }} - ${{ dataset.price }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

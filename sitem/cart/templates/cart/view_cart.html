@@ -1,0 +1,74 @@
+{% include 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-7">
+            <h2>Sepetim</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Delete Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cart_item in cart_items %}
+                        <tr>
+                            <td>{{ cart_item.dataset.name }}</td>
+                            <td>{{ cart_item.quantity }}</td>
+                            <td>{{ cart_item.dataset.price }}</td>
+                            <td>
+                                <form method="post" action="{% url 'cart:view_cart' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" name="delete_item_id" value="{{ cart_item.id }}">
+                                        <i class="fa fa-trash"></i> <!-- Font Awesome cart icon -->
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Total Price: {{ total_price }}</p>
+            <div class="checkout-button">
+                {% if has_items %}
+                    <a href="{% url 'cart:checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Kullanıcı Bilgileri</h2>
+
+            <form method="post" action="{% url 'cart:checkout' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_first_name">İsim</label>
+                    <input type="text" class="form-control" id="id_first_name" name="first_name" value="{{ user_info_form.first_name.value }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_last_name">Soyisim</label>
+                    <input type="text" class="form-control" id="id_last_name" name="last_name" value="{{ user_info_form.last_name.value }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_address">Adres</label>
+                    <input type="text" class="form-control" id="id_address" name="address" value="{{ user_info_form.address.value }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_phone_number">Telefon Numarası</label>
+                    <input type="text" class="form-control" id="id_phone_number" name="phone_number" value="{{ user_info_form.phone_number.value }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

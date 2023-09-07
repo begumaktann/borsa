@@ -1,0 +1,71 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'genel/css/main.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<h1 class="text-center mt-4">Halka Arz Verileri</h1>
+<div class="container mt-4">
+  {% for dataset in page_datasets %}
+
+
+<div class="row mb-1">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body d-flex justify-content-between">
+        <div>
+          <a href="#datasetDetails{{ forloop.counter }}" class="dataset-toggle" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datasetDetails{{ forloop.counter }}">
+            <span class="filename">{{ dataset.name }}</span>
+          </a>
+        </div>
+        <div>
+          {% if user.is_authenticated %}
+          <a href="{% url 'cart:add_to_cart' dataset_id=dataset.id %}" class="btn btn-success btn-sm">
+
+            <i class="fas fa-cart-plus"></i> <!-- Font Awesome cart icon -->
+            Add to Cart {% endif %}
+          </a>
+        </div>
+      </div>
+
+      <div class="collapse" id="datasetDetails{{ forloop.counter }}">
+        <div class="mt-1">
+          <span class="property">Size: {{ dataset.size|filesizeformat }}</span>
+          <span class="property">Date: {{ dataset.date }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {% endfor %}
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+  <div class="pagination">
+    {% if page_datasets.has_previous %}
+      <a href="?page=1" class="page-link"><i class="fas fa-angle-double-left"></i></a>
+      <a href="?page={{ page_datasets.previous_page_number }}" class="page-link"><i class="fas fa-angle-left"></i></a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ page_datasets.number }} of {{ page_datasets.paginator.num_pages }}.
+    </span>
+
+    {% if page_datasets.has_next %}
+      <a href="?page={{ page_datasets.next_page_number }}" class="page-link"><i class="fas fa-angle-right"></i></a>
+      <a href="?page={{ page_datasets.paginator.num_pages }}" class="page-link"><i class="fas fa-angle-double-right"></i></a>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}
